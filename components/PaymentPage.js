@@ -106,13 +106,13 @@ const PaymentPage = ({ username }) => {
       />
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
       <div className='cover w-full bg-red-50 relative'>
-        <img className='object-cover w-full h-[50vh]' src={currentUser.coverpic || "/Coverpic.jpeg"} />
+        <img className='object-cover w-full h-[20vh] md:h-[40vh]' src={currentUser.coverpic || "/Coverpic.jpeg"} />
 
-        <div className='absolute -bottom-15 right-[45%] border-2 rounded-full'>
+        <div className='absolute -bottom-15 right-[32%] md:right-[45%]  border-2 rounded-full'>
           <img className='rounded-full' width={150} height={150} src={currentUser.profilepic || "/Picture.jpg"} />
         </div>
       </div>
-      <div className="info flex justify-center items-center my-16 mb-32 flex-col gap-2">
+      <div className="info flex flex-col justify-center items-center my-16 mb-32  gap-2">
         <div className='font-bold text-lg'>
           @{username}
         </div>
@@ -123,8 +123,8 @@ const PaymentPage = ({ username }) => {
           {payments.length} payments . {currentUser.name} has raised ₹{payments.reduce((total, p) => total + p.amount, 0)}
         </div>
 
-        <div className="payment flex gap-3 w-[80%] mt-11">
-          <div className="Supporters w-1/2 bg-slate-900 rounded-lg p-5 text-white">
+        <div className="payment flex gap-3 w-[80%] mt-11 flex-col md:flex-row">
+          <div className="Supporters w-full md:w-1/2 bg-slate-900 rounded-lg p-5 text-white">
             {/* Show the list of all the supporters as a leaderboard */}
             <h2 className='text-2xl font-bold my-5'>Supporters</h2>
             {payments.length === 0 && <div className='text-center text-slate-400'>No supporters yet. Be the first one to support!</div>}
@@ -137,7 +137,7 @@ const PaymentPage = ({ username }) => {
             </ul>
           </div>
 
-          <div className="MakePayment w-1/2 bg-slate-900 rounded-lg p-5 text-white">
+          <div className="MakePayment w-full md:w-1/2 bg-slate-900 rounded-lg p-5 text-white">
             <h2 className='text-2xl font-bold my-5'>Make a Payment</h2>
 
             <div className="flex gap-2 flex-col">
@@ -151,7 +151,7 @@ const PaymentPage = ({ username }) => {
 
             </div>
             {/* or choose from these amounts */}
-            <div className='flex gap-2 mt-5'>
+            <div className='flex flex-col md:flex-row gap-2 mt-5'>
               <button className='p-3 rounded-lg bg-slate-800 cursor-pointer' onClick={() => pay(2000)}>Pay ₹20</button>
               <button className='p-3 rounded-lg bg-slate-800' onClick={() => pay(3000)}>Pay ₹30</button>
               <button className='p-3 rounded-lg bg-slate-800' onClick={() => pay(4000)}>Pay ₹40</button>

@@ -4,15 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SessionWrapper from "@/components/SessionWrapper";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 export const metadata = {
   title: "Patreon Clone",
@@ -22,15 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className=" min-h-screen flex flex-col
+      [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] text-white">
         <SessionWrapper>
-        <Navbar/>
-        
-        <div className="min-h-[70vw] [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] text-white">
-          
-        {children}
-        </div>
-        <Footer/>
+          <Navbar />
+
+          <main className="min-h-screen  [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]  text-white">
+
+            {children}
+          </main>
+          <Footer />
         </SessionWrapper>
       </body>
     </html>
