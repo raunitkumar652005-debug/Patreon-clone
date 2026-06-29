@@ -7,6 +7,7 @@ import Link from 'next/link'
 const Navbar = () => {
   const { data: session } = useSession()
   const [showdropdown, setShowdropdown] = useState(false)
+  const isCreator = session?.user?.isCreator
   
   return (
     <nav className='bg-gray-900 shadow-lg shadow-white text-white flex justify-between items-center px-4 py-3 md:px-6 md:py-4 flex-col md:flex-row gap-4 md:gap-0'>
@@ -25,12 +26,16 @@ const Navbar = () => {
 
 <div id="dropdown" className={`z-10 ${showdropdown?"": "hidden"} absolute right-0 md:left-[150px] top-12 md:top-auto bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 dark:bg-gray-700`}>
     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200 font-medium" aria-labelledby="dropdownDefaultButton">
+      
       <li>
         <Link href="/dashboard" className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded">Dashboard</Link>
       </li>
+      
+     
       <li>
-        <Link href={`${session.user.name}`} className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded">Your Page</Link>
+        <Link href="/raunitkumar" className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded">Creator Page</Link>
       </li>
+      
       
       <li>
         <Link onClick={()=> signOut()} href="#" className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white  rounded">Sign out</Link>
