@@ -34,7 +34,7 @@ const Navbar = () => {
 
 
               <li>
-                <Link href={`/${session.user.username}`} className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded">Creator Page</Link>
+                <Link href={`/${process.env.NEXT_PUBLIC_CREATOR_USERNAME}`} className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded">Creator Page</Link>
               </li>
 
 
