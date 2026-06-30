@@ -14,9 +14,9 @@ const Dashboard = () => {
     const [form, setform] = useState({})
 
     const getData = useCallback(async () => {
-        if (!session?.user?.name || !session?.user?.isCreator) return
+        if (!session?.user?.username || !session?.user?.isCreator) return
 
-        let u = await fetchuser(session.user.name)
+        let u = await fetchuser(session.user.username)
         setform(u)
     }, [session])
 
@@ -56,7 +56,7 @@ const Dashboard = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();   // ⚠️ ye zaroori hai
 
-        let res = await updateProfile(form, session.user.name);
+        let res = await updateProfile(form, session.user.username);
 
         console.log("RES:", res);
 

@@ -20,7 +20,7 @@ const Navbar = () => {
 {session && <><button onClick={()=>setShowdropdown(!showdropdown)} onBlur={()=> {setTimeout(() => {
   setShowdropdown(false)
 }, 300);}}  id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="inline-flex items-center justify-center text-white mx-2 md:mx-4 bg-blue-700 box-border border border-transparent hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-xs font-medium leading-5 rounded-lg text-xs md:text-sm px-3 md:px-4 py-2 md:py-2.5 focus:outline-none truncate" type="button">
-  <span className='hidden sm:inline'>Welcome</span> {session.user.email}
+  <span className='hidden sm:inline'>Welcome {session.user.name} </span>
   <svg className="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 9-7 7-7-7"/></svg>
 </button>
 
@@ -33,7 +33,7 @@ const Navbar = () => {
       
      
       <li>
-        <Link href="/raunitkumar" className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded">Creator Page</Link>
+        <Link href={`/${session.user.username}`} className="inline-flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded">Creator Page</Link>
       </li>
       
       

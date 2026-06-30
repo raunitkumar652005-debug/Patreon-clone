@@ -116,7 +116,7 @@ const PaymentPage = ({ username }) => {
 
         <div className="payment flex gap-3 w-[80%] mt-11 flex-col md:flex-row">
           <div className="Supporters w-full md:w-1/2 bg-slate-900 rounded-lg p-5 text-white">
-            <h2 className='text-2xl font-bold my-5'>Supporters</h2>
+            <h2 className='text-2xl font-bold mx-5 my-5'>Top 10 Supporters</h2>
             {payments.length === 0 && <div className='text-center text-slate-400'>No supporters yet. Be the first one to support!</div>}
             <ul className='mx-5 text-lg'>
               {payments.map((p, i) => {

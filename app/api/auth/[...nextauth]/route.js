@@ -146,7 +146,8 @@ export const authOptions = {
       });
 
       if (dbUser) {
-        session.user.name = dbUser.username;
+        // session.user.name = dbUser.username;
+        session.user.username = dbUser.username;
         session.user.isCreator = dbUser.isCreator;
       }
 
