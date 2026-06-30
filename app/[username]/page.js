@@ -32,36 +32,62 @@ import User from '@/models/User'
 //   }
 // }
 
-const Username = async ({ params }) => {
+// const Username = async ({ params }) => {
+//   await connectDb()
+
+//   const creatorUsername =
+//     params.username === process.env.CREATOR_USERNAME
+//       ? params.username
+//       : process.env.CREATOR_USERNAME
+
+//   let u = await User.findOne({
+//     username: creatorUsername,
+//   })
+
+//   if (!u) {
+//     return notFound()
+//   }
+
+//   return (
+//     <>
+//       <PaymentPage username={creatorUsername} />
+//     </>
+//   )
+// }
+// export default Username
+
+// export async function generateMetadata({ params }) {
+//   return {
+//     title: `Support ${process.env.CREATOR_USERNAME} - Get me a PS5`,
+//   }
+// }
+
+const Username = async () => {
   await connectDb()
 
-  const creatorUsername =
-    params.username === process.env.CREATOR_USERNAME
-      ? params.username
-      : process.env.CREATOR_USERNAME
+  // Agar creator ka username database me change ho gaya hai
+  const creator = await User.findOne({ isCreator: true })
 
-  let u = await User.findOne({
-    username: creatorUsername,
-  })
-
-  if (!u) {
+  if (!creator) {
     return notFound()
   }
 
   return (
     <>
-      <PaymentPage username={creatorUsername} />
+      <PaymentPage username={creator.username} />
     </>
   )
 }
+
 export default Username
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
+  const creator = await User.findOne({ isCreator: true })
+
   return {
-    title: `Support ${process.env.CREATOR_USERNAME} - Get me a PS5`,
+    title: `Support ${creator?.username || "Creator"} - Get me a PS5`,
   }
 }
-
 
 
 
