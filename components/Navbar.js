@@ -9,7 +9,7 @@ const Navbar = () => {
   const isCreator = session?.user?.isCreator
   
   return (
-    <nav className='bg-gray-900 shadow-lg shadow-white text-white flex justify-between items-center px-4 py-3 md:px-6 md:py-4 flex-col md:flex-row gap-4 md:gap-0'>
+    <nav className='sticky top-0 left-0 w-full z-20 bg-gray-900 shadow-lg shadow-white text-white flex justify-between items-center px-4 py-3 md:px-6 md:py-4 flex-col md:flex-row gap-4 md:gap-0'>
       <Link className="Logo font-bold text-base md:text-lg flex justify-center items-center" href={"/"}>
         <img src="/giphy.webp" width={44} alt="" />
         <span className='ml-2'>Patreon Clone</span>
